@@ -180,3 +180,5 @@ hello_promise()
 // para el caso false. solo responde ups.
 
 ///////////////////////////////////////////////////////
+
+// Clases, módulos y generadores
