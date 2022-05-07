@@ -181,4 +181,59 @@ hello_promise()
 
 ///////////////////////////////////////////////////////
 
-// Clases, módulos y generadores
+// Clases
+class calculator {
+    // se define un constructor para inicializar la clase
+    constructor(){
+        // aca tendremos las variables que estara en un scope global
+        this.valueA = 0;
+        this.valueB = 0;
+    }
+    // acá pongo el método de la clase
+    sum(valueA,valueB){
+        this.valueA = valueA;
+        this.valueB = valueB;
+        return this.valueA + this.valueB;
+    }
+}
+// Tengo entonces una clase con un constructor que asigna al scope global dos variables
+// Luego tendre mi método al que le paso dos cosas, las asigna a las variables globales que habia armado
+// Finalmente hago la suma
+
+const calc = new calculator(); // instancio
+console.log(calc.sum(2,2)); // llamo la instancia y el método de la instancia, con sus argumentos
+// Y eso último es hacer un 2 + 2
+
+////////////////////////////////////////////
+
+// Import y export -> módulos
+
+import { holis } from './module'
+holis();
+// ahora puedo usar las funcionalidades del archivo module.js
+
+// Esta sintaxis es nueva y puede que no la soporte mi version de nodejs
+// la sintaxis vieja es
+const holis = require('./module')
+console.log(holis())
+
+
+/////////////////////////////////////
+
+// Generadores ES6
+
+// Se define la funcion con * para mostrar que es un generador.
+function* holaMundo() {
+    if (true) {
+        yield 'Hola, '; // el generador siempre devuelve un yield que se guarda de forma interna
+    }
+    if (true) {
+        yield 'Mundo'; // con esto me hago el segundo elemento
+    }
+};
+
+const generadorHola = holaMundo();
+// lo ejecuto varias veces para ir haciendo cada logica
+console.log(generadorHola.next().value); // con esta sintaxis le pido el resultado de la primera evaluacion (HOLA )
+console.log(generadorHola.next().value); // hago la segunda evaluacion (MUNDO)
+console.log(generadorHola.next().value); // hago una tercera vez a ver que pasa
