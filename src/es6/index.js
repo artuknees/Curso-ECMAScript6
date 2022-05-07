@@ -78,7 +78,7 @@ console.log(education);
 
 /////////////////////////////////////////////
 
-// VAR, LET y CONST
+// VAR, LET y CONST ES6
 // LET
 {
     var globalvar = "Global Var";
@@ -98,3 +98,85 @@ console.log(globalvar);
 const a = 'b';
 a = 'a';
 // Esto si puede hacerse con una variable LET o con una variable VAR.
+
+/////////////////////////////////////////////////////////
+
+// Propiedad de objetos mejorada ES6
+// parametros de objetos
+
+let nombre = 'arturo';
+let edad = 31;
+
+// Antes de ES6
+obj = {nombre: nombre , edad: edad};
+
+// Con ES6
+obj_2 = { nombre , edad };
+
+console.log(obj);
+console.log(obj_2);
+
+///////////////////////////////////////////////////
+
+// Arrow functions ES6
+// son funciones anonimas
+const names = [
+    {name: 'oscar', age: 32},
+    {name: 'jesica', age: 27}
+]
+
+// para iterar por cada elemento
+// uso map y paso una funcion anonima
+let listOfNames = names.map(
+    function (item){
+        console.log(item.name);
+    }
+);
+
+// Ahora con arrow functions
+
+let listOfNames_2 = names.map(item => console.log(item.name));
+// Mucho mas facil y corto de escribir.
+
+// otro modo de encontrar una arrow function
+const listOfNames_3 = (name,age,country) => {
+    // el codigo de la funcion
+};
+
+// Si solo paso un parametro no hace falta envolver entre parentesis
+const listOfNames_4 = name => {
+    // codigo de la function
+};
+
+// puedo usar una nueva funcion
+const square = num => num * num;
+// genero una funcion "const" que eleva un numero al cuadrado.
+// eso es lo que me retorna. No tengo que poner ni return ni bloque de llave.
+
+console.log(square(2));
+
+//////////////////////////////////////////////////////////
+
+// Promesas ES6
+const hello_promise = () => {
+    return new Promise((resolve,reject) => {
+        if (true) {
+            resolve('Hey!')
+        } else {
+            reject('Ups!');
+        }
+    })
+};
+// Asigno una nueva funcion que devuelve una promesa.
+// La promesa dice que algo va a pasar.
+// Si verdadero es verdadero, entonces va a resolver con HEY. Si eso no pasa, devuelve UPS.
+
+hello_promise()
+    .then(response => console.log(response))
+    .then(() => console.log('hola!'))
+    .catch(error => console.log(error));
+// ejecuto la funcion y avanzo sobre las promesas. Digo que se va a hacer en cada caso
+// cara el caso true, va a imprimir hey y hola.
+// para el caso false. solo responde ups.
+
+///////////////////////////////////////////////////////
