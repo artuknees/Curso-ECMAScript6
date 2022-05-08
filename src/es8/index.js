@@ -43,6 +43,7 @@ console.log(string.padEnd(12,' -----'))
 
 // async await
 
+// primero armo una promesa
 const helloWorld = () => {
     return new Promise((resolve, reject) => {
         (false)
