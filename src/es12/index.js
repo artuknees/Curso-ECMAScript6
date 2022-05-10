@@ -45,7 +45,7 @@ class anyClass {
     this.ref = new WeakRef(element)
     // le doy una weak ref con el elemento
     }
-    {...}
+    {console.log('hola')}
 }
 
 
